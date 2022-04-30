@@ -38,11 +38,11 @@ public class PathGenerator : MonoBehaviour
         while (yValue <= 2)
         {
             int nextX = xValue;
-            int nextY = 0;
+            //int nextY = 0;
 
 
-            int xStarting = 0;
-            int xEnding = 3;
+            //int xStarting = 0;
+            //int xEnding = 3;
 
 
             bool goSraight = Random.Range(0, 2) == 0 ? true : false;

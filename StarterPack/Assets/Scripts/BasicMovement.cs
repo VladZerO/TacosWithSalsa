@@ -10,11 +10,13 @@ public class BasicMovement : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 0.0f;
 
+    public bool player1;
+
     /// <summary>
     /// Sensibility of the camera, how fast it will move
     /// </summary>
-    [SerializeField]
-    private float camSensibility = 10f;
+    //[SerializeField]
+    //private float camSensibility = 10f;
 
     [SerializeField]
     private float jumpForce = 10f;
@@ -62,10 +64,20 @@ public class BasicMovement : MonoBehaviour
     private void MoveCharacter()
     {
         //<< Gets the axis for moving the player
-        float lnXMovement = Input.GetAxis("Horizontal");
-        float lnZMovement = Input.GetAxis("Vertical");
+        if (player1)
+        {
+            float lnXMovement = Input.GetAxis("Horizontal");
+            float lnZMovement = Input.GetAxis("Vertical");
 
-        loRigidBody.velocity = new Vector3(lnXMovement * movementSpeed, loRigidBody.velocity.y, lnZMovement * movementSpeed);
+            loRigidBody.velocity = new Vector3(lnXMovement * movementSpeed, loRigidBody.velocity.y, lnZMovement * movementSpeed);
+        } else
+        {
+            float lnXMovement = Input.GetAxis("Horizontal");
+            float lnZMovement = Input.GetAxis("Vertical");
+
+            loRigidBody.velocity = new Vector3(-lnXMovement * movementSpeed, loRigidBody.velocity.y, -lnZMovement * movementSpeed);
+        }
+       
 
     }
 

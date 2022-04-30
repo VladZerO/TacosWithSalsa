@@ -133,6 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 241296148}
   - component: {fileID: 241296147}
+  - component: {fileID: 241296149}
+  - component: {fileID: 241296150}
+  - component: {fileID: 241296151}
   m_Layer: 0
   m_Name: PMCS_MarioSprite
   m_TagString: Untagged
@@ -199,12 +202,57 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241296146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 6.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241296149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241296146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32fb714a9e1ba5489f1e4ee04c6b726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  camSensibility: 10
+  jumpForce: 200
+  gameCamera: {fileID: 796607715}
+--- !u!54 &241296150
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241296146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &241296151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241296146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.21, y: 5.1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &280469229
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,12 +554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e527b5cc86f4345af5ab5305b70f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midTilePrefab: {fileID: 4045964340452370566, guid: 491c627f70f48414c86595e0e019035e, type: 3}
-  sideTilePrefab: {fileID: 4045964340452370566, guid: 1cc34d66cbb95eb4f883f7cbd71d4741, type: 3}
+  midTilePrefab: {fileID: 8858128285633870426, guid: 6e00f2bec8bac1e468546dde208b828d, type: 3}
+  sideTilePrefab: {fileID: 1800820368008227243, guid: d298e2b65b0d0b04abab1823935a820c, type: 3}
   amountOfRows: 20
   tilesPerRow: 3
-  tileWidth: 10
-  tileLength: 10
+  tileWidth: 9
+  tileLength: 9
 --- !u!4 &1273581348
 Transform:
   m_ObjectHideFlags: 0
