@@ -57,7 +57,7 @@
                 {
                     "name": "",
                     "id": "2291e95d-4753-438f-b9c5-8e445f556c24",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
