@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpeedUpTile
-  m_Shader: {fileID: -6465566751694194690, guid: a446856fc063eeb479c4196c354feaa8, type: 3}
+  m_Name: SlowDownTile
+  m_Shader: {fileID: -6465566751694194690, guid: 3fd8d123d2fd25f4c9fa2c571531331d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,16 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_1278d718b243453da8323c4705472342:
-        m_Texture: {fileID: 2800000, guid: 4e64b2317e382184b81e011b3fbd88d5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - Texture2D_9f6c29e9a1064cbd9d952d390c4962c9:
         m_Texture: {fileID: 2800000, guid: 4e64b2317e382184b81e011b3fbd88d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_d47c4b0bd3e546fa9321fdded1f00811:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a7a29ad88fb199f4fac3e23b317c90b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -68,6 +64,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e5fb480ff78242598741d55348a14f20_Texture_1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -115,15 +115,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_c1db70e54f9d48c1a1e2c615abc85489: {r: 0.6666667, g: 0.9960785, b: 0.9294118, a: 1}
-    - Vector2_82edcebfb4cf42fc88e6c29d67464d47: {r: 0, g: -1, b: 0, a: 0}
-    - Vector2_cb32d9fc25254bc98a0a9f81ccf3d55d: {r: 0, g: 1, b: 0, a: 0}
+    - Color_c1db70e54f9d48c1a1e2c615abc85489: {r: 0.67058825, g: 0.9960785, b: 0.9333334, a: 1}
+    - Vector2_82edcebfb4cf42fc88e6c29d67464d47: {r: 0, g: -2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &9069042578052112629
+--- !u!114 &3293591887512447583
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
