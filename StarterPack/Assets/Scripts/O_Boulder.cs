@@ -15,9 +15,8 @@ public class O_Boulder : MonoBehaviour
         {
             Vector3 pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);
             GetComponent<Rigidbody>().MovePosition(pos);
-
         }
-
-        else current = (current + 1) % target.Length;
+        else 
+            current = (current + 1) % target.Length;
     }
 }
