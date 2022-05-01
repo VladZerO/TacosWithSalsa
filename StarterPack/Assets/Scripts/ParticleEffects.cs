@@ -6,10 +6,14 @@ using UnityEngine;
 public class ParticleEffects : MonoBehaviour
 {
    // public PlayerController playerController;
-    public bool isGround;
+    public bool isGrounded;
+    public Transform groundPoint;
+    public LayerMask whatIsGround;
+
     public ParticleSystem explosionParticles;
     public ParticleSystem runningParticles;
     public ParticleSystem splashParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,22 +21,38 @@ public class ParticleEffects : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    /*
+    ||Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.S)
+    */
     void Update()
     {
+        groundCheck();
         runningParticle();
+
+        if(Input.GetButtonDown("Jump") && isGrounded==true)
+            {
+                runningParticles.Stop();
+            }
+    }
+
+    void groundCheck()
+    {
+         RaycastHit hit;
+        if(Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded=false;
+        }
     }
 
     void runningParticle()
     {
-        if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.S))
-            {
-                if(!runningParticles.isPlaying)
-                runningParticles.Play();
-            }
-            else
-            {
-                runningParticles.Stop();
-            }
+        
+         
     }
 
     private void OnCollisionEnter(Collision other) 
@@ -45,6 +65,15 @@ public class ParticleEffects : MonoBehaviour
         {
             splashParticles.Play();
 
+        }
+
+        if(isGrounded==true)
+        {
+            runningParticles.Play();
+        }
+        else if(other.gameObject.CompareTag("Obstacle"))
+        {
+            runningParticles.Stop();
         }
     }
 }
