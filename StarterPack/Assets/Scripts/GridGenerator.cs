@@ -67,19 +67,19 @@ public class GridGenerator : MonoBehaviour
             if (y == 0)
             {
                 loTilePrefab = Instantiate(sideTilePrefab);
-                loTilePrefab.transform.position = new Vector3(-tileWidth + (y * tileWidth), 0.0f, tileLength * x);
+                loTilePrefab.transform.position = new Vector3((-tileWidth * 2) + (y * tileWidth), 0.0f, tileLength * x);
                 loTilePrefab.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
 
             }
             else if (y == tilesPerRow - 1)
             {
                 loTilePrefab = Instantiate(sideTilePrefab);
-                loTilePrefab.transform.position = new Vector3(-tileWidth + (y * tileWidth), 0.0f, tileLength * x);
+                loTilePrefab.transform.position = new Vector3((-tileWidth * 2) + (y * tileWidth), 0.0f, tileLength * x);
             }
             else
             {
                 loTilePrefab = Instantiate(midTilePrefab);
-                loTilePrefab.transform.position = new Vector3(-tileWidth + (y * tileWidth), 0.0f, tileLength * x);
+                loTilePrefab.transform.position = new Vector3((-tileWidth * 2) + (y * tileWidth), 0.0f, tileLength * x);
             }
 
             //<< Get the component Tile and add it to the current List of tiles. Set the Tile.

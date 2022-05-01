@@ -22,24 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Number1",
-                    "type": "Button",
-                    "id": "e76d5818-bdbf-431a-8310-1d887f47e728",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Number2",
-                    "type": "Button",
-                    "id": "c816a7ba-e317-4aee-b697-a159168f3886",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -123,33 +105,11 @@
                 {
                     "name": "",
                     "id": "41b477c2-b89c-427f-bfcb-84ff0e6d85c5",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "18e22b33-5a77-4447-80f2-91b069976e4f",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard1",
-                    "action": "Number1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "04ae8949-7c3a-45f5-8fcf-e5497e2642f6",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard1",
-                    "action": "Number2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

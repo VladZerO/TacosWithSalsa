@@ -66,10 +66,7 @@ public class BasicMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-       
         loRigidBody.AddForce(new Vector3(0f, jumpForce, 0f));
-        
-        
     }
 
     /// <summary>
@@ -77,11 +74,7 @@ public class BasicMovement : MonoBehaviour
     /// </summary>
     private void MoveCharacter()
     {
-
-
-            loRigidBody.velocity = new Vector3(movementInput.x * movementSpeed, loRigidBody.velocity.y, movementInput.y * movementSpeed);
-  
-
+        loRigidBody.velocity = new Vector3(movementInput.x * movementSpeed, loRigidBody.velocity.y, movementInput.y * movementSpeed);
     }
 
     /// <summary>
