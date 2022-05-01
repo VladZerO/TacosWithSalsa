@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e527b5cc86f4345af5ab5305b70f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midTilePrefab: {fileID: 8858128285633870426, guid: 6e00f2bec8bac1e468546dde208b828d, type: 3}
-  sideTilePrefab: {fileID: 1800820368008227243, guid: d298e2b65b0d0b04abab1823935a820c, type: 3}
+  midTilePrefab: {fileID: 6027398609116851232, guid: 8d4977670a75df64fa42274c8940f3c6, type: 3}
+  sideTilePrefab: {fileID: 4044630926743224967, guid: 6059eeedc6976cb48a35d95588732473, type: 3}
   amountOfRows: 20
   tilesPerRow: 5
   tileWidth: 9

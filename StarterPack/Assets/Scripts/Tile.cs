@@ -13,10 +13,6 @@ public class Tile : MonoBehaviour
 
     public bool tileDisabled = false;
 
-
-    [SerializeField]
-    private TextMesh orderIndex;
-
     [SerializeField]
     private Material correctPathMat;
 
@@ -38,8 +34,6 @@ public class Tile : MonoBehaviour
     public void SetAsSelected(int lnOrder)
     {
         tileSelected = true;
-        orderIndex.gameObject.SetActive(true);
-        orderIndex.text = lnOrder.ToString();
         GetComponent<Renderer>().material = correctPathMat;
     }
 }
