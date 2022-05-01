@@ -5511,7 +5511,7 @@ GameObject:
   - component: {fileID: 1343168326}
   - component: {fileID: 1343168325}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: JumpArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8840,3 +8840,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5885441ee5c54d849b4f2780a4b21da3, type: 3}
+--- !u!1001 &6537593307727860212
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_RootOrder
+      value: 143
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071071
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785898, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537593307883785902, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
+      propertyPath: m_Name
+      value: SpeedUpTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebd893558b2918749b098d2f47d20d09, type: 3}
