@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 
 public class BasicMovement : MonoBehaviour
@@ -37,9 +37,16 @@ public class BasicMovement : MonoBehaviour
     [SerializeField]
     private Camera gameCamera;
 
+
+    PlayerInputManager playerInputManager;
+
+    private Vector2 movementInput = Vector2.zero;
+
+
     private void Start()
     {
         loRigidBody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -47,16 +54,21 @@ public class BasicMovement : MonoBehaviour
     {
         MoveCharacter();
         //RotateCharacter();
-        Jump();
+        //Jump();
     }
 
 
-    private void Jump()
+    public void Move(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            loRigidBody.AddForce(new Vector3(0f, jumpForce, 0f));
-        }
+        movementInput = context.ReadValue<Vector2>();
+
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+       
+        loRigidBody.AddForce(new Vector3(0f, jumpForce, 0f));
+        
         
     }
 
@@ -65,21 +77,10 @@ public class BasicMovement : MonoBehaviour
     /// </summary>
     private void MoveCharacter()
     {
-        //<< Gets the axis for moving the player
-        if (player1)
-        {
-            float lnXMovement = Input.GetAxis("Horizontal");
-            float lnZMovement = Input.GetAxis("Vertical");
 
-            loRigidBody.velocity = new Vector3(lnXMovement * movementSpeed, loRigidBody.velocity.y, lnZMovement * movementSpeed);
-        } else
-        {
-            float lnXMovement = Input.GetAxis("Horizontal");
-            float lnZMovement = Input.GetAxis("Vertical");
 
-            loRigidBody.velocity = new Vector3(-lnXMovement * movementSpeed, loRigidBody.velocity.y, -lnZMovement * movementSpeed);
-        }
-       
+            loRigidBody.velocity = new Vector3(movementInput.x * movementSpeed, loRigidBody.velocity.y, movementInput.y * movementSpeed);
+  
 
     }
 
