@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GridGenerator : MonoBehaviour
@@ -18,14 +19,13 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] private int tileLength;
 
    
-    private List<GameObject> createdTiles = new List<GameObject>();
+    private List<Tile> createdTiles = new List<Tile>();
     private List<GameObject> createdRows = new List<GameObject>();
-
-    private GameObject[,] tileGrid;
 
 
     private int rowIndexToGenerate;
     private int currentFurthestRow;
+    private List<Tile> possibleNextSteps = new List<Tile>();
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class GridGenerator : MonoBehaviour
     void Start()
     {
         FirstGeneration();
+        PathGeneration();
     }
 
 
@@ -52,6 +53,7 @@ public class GridGenerator : MonoBehaviour
             rowIndexToGenerate++;
 
             GenerateNewRow(currentFurthestRow);            
+            
         }
     }
 
@@ -80,17 +82,86 @@ public class GridGenerator : MonoBehaviour
                 loTilePrefab.transform.position = new Vector3(-tileWidth + (y * tileWidth), 0.0f, tileLength * x);
             }
 
-            createdTiles.Add(loTilePrefab);
-            //<< Getting the coords of each grid.
-            //tileGrid[x, y] = loTilePrefab;
+            //<< Get the component Tile and add it to the current List of tiles. Set the Tile.
+            Tile loTile = loTilePrefab.GetComponent<Tile>();
+            loTile.SetTile(x, y);
 
-            loTilePrefab.GetComponent<Tile>().SetTile(x, y);
+            createdTiles.Add(loTile);
         }
     }
 
+
+    private void PathGeneration()
+    {
+        int xValue = Random.Range(0, 3);
+
+        int lnOrder = 0;
+
+        Tile currentTileOnPath = createdTiles.Where(x => x.tileRow == 0 && x.tileColumn == xValue).FirstOrDefault();
+        currentTileOnPath.SetAsSelected(lnOrder);
+
+
+        bool keepSelecting = true;
+
+        int currentRow = 0;
+        int currentTilesInRow = 1;
+
+        while (keepSelecting)
+        {
+            possibleNextSteps.Clear();
+
+            //<< Ask if you want to go left
+            AddIfExists(currentTileOnPath.tileRow, currentTileOnPath.tileColumn - 1);
+            AddIfExists(currentTileOnPath.tileRow, currentTileOnPath.tileColumn + 1);
+
+            //<< Ask if you want to go front
+            AddIfExists(currentTileOnPath.tileRow + 1, currentTileOnPath.tileColumn - 1);
+            AddIfExists(currentTileOnPath.tileRow + 1, currentTileOnPath.tileColumn);
+            AddIfExists(currentTileOnPath.tileRow + 1, currentTileOnPath.tileColumn + 1);
+
+            if (possibleNextSteps.Count > 0)
+            {
+                lnOrder++;
+                int nextTileIndex = Random.Range(0, possibleNextSteps.Count);
+                currentTileOnPath = possibleNextSteps[nextTileIndex];
+
+                if (currentRow == currentTileOnPath.tileRow)
+                {
+                    currentTilesInRow++;
+                    if (currentTilesInRow > 3)
+                    {
+                        currentTileOnPath.tileDisabled = true;
+                        continue;
+                    }
+                } else
+                {
+                    currentRow = currentTileOnPath.tileRow;
+                    currentTilesInRow = 1;
+                }
+
+
+                currentTileOnPath.SetAsSelected(lnOrder);
+            }
+            else
+            {
+                keepSelecting = false;
+            }
+        }
+    }
+
+    private void AddIfExists(int xIndex, int yIndex)
+    {
+        Tile possibleNextTile = createdTiles.Where(x => x.tileRow == xIndex && x.tileColumn == yIndex && x.tileSelected == false && x.tileDisabled == false).FirstOrDefault();
+        if (possibleNextTile)
+        {
+            possibleNextSteps.Add(possibleNextTile);
+        }
+    }
+
+
     private void FirstGeneration()
     {
-        tileGrid = new GameObject[amountOfRows, tilesPerRow];
+        //tileGrid = new GameObject[amountOfRows, tilesPerRow];
 
         for (int x = 0; x < amountOfRows; x++)
         {
@@ -100,7 +171,6 @@ public class GridGenerator : MonoBehaviour
         //<< Sets the latest generated row as the currentFurthestRow
         rowIndexToGenerate = amountOfRows / 2;
         currentFurthestRow = amountOfRows - 1;
-
     }
 }
         
