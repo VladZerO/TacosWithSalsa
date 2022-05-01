@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PenquinMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-       
+
     public float gravityModifier = 2.0f;
 
     public Rigidbody rb;
@@ -14,9 +14,9 @@ public class PenquinMovement : MonoBehaviour
 
     public LayerMask whatIsGround;
     public Transform groundPoint;
-    private bool isGrounded;
+    public bool isGrounded;
 
-    [SerializeField] ParticleSystem runningParticles;
+    //[SerializeField] ParticleSystem runningParticles;
 
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class PenquinMovement : MonoBehaviour
     {
        movePlayer();
        jumpPlayer();
-       //slidePlayer();
+       slidePlayer();
     }
 
     void movePlayer()
@@ -39,9 +39,16 @@ public class PenquinMovement : MonoBehaviour
             moveInput.y=Input.GetAxis("Vertical");
             moveInput.Normalize();
 
+
+    if(Mathf.Abs(moveInput.x) > 0f)
+    {
+        transform.Rotate(0f,0f,0.5f);
+        transform.Rotate(0f,0f,-0.5f);
+    }
+
             rb.velocity=new Vector3(moveInput.x*moveSpeed, rb.velocity.y, moveInput.y*moveSpeed);
 
-            //running particle system
+           /* //running particle system
             if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.S))
             {
                 if(!runningParticles.isPlaying)
@@ -50,7 +57,7 @@ public class PenquinMovement : MonoBehaviour
             else
             {
                 runningParticles.Stop();
-            }
+            }*/
         }
     void jumpPlayer()
     {
@@ -74,9 +81,27 @@ public class PenquinMovement : MonoBehaviour
         } 
     }
 
-   /* void slidePlayer()
-    {
-         
+    float rotationSpeed = 45;
+    Vector3 currentEulerAngles;
+    float x;
+    float y=0;
+    float z=0;
 
-    }*/
+    void slidePlayer()
+    {
+        
+         if(Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
+         {
+             x=60;
+             currentEulerAngles += new Vector3(x, y, z) * Time.deltaTime * rotationSpeed;
+             transform.eulerAngles = currentEulerAngles;
+         }
+         else if(Input.GetKeyUp(KeyCode.LeftShift))
+         {
+             x=-60;
+             currentEulerAngles += new Vector3(x, y, z) * Time.deltaTime * rotationSpeed;
+             transform.eulerAngles = currentEulerAngles;
+         }
+
+    }
 }
