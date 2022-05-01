@@ -99,7 +99,6 @@ MonoBehaviour:
   tileColumn: 0
   tileSelected: 0
   tileDisabled: 0
-  orderIndex: {fileID: 0}
   correctPathMat: {fileID: 2100000, guid: 946d5117b7bcabf4fa6265fa194f9800, type: 2}
 --- !u!65 &5627830933236877524
 BoxCollider:
@@ -112,5 +111,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 286.64224, z: 299.94342}
+  m_Size: {x: 300, y: 285, z: 300}
   m_Center: {x: 0, y: -143.32112, z: 0.0000076293945}

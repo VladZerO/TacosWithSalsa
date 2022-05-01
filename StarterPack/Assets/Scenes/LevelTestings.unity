@@ -1184,10 +1184,10 @@ GameObject:
   - component: {fileID: 2079372767}
   - component: {fileID: 2079372766}
   - component: {fileID: 2079372765}
-  - component: {fileID: 2079372764}
   - component: {fileID: 2079372768}
   - component: {fileID: 2079372769}
   - component: {fileID: 2079372763}
+  - component: {fileID: 2079372764}
   m_Layer: 0
   m_Name: TheyPenguin
   m_TagString: Player
@@ -1209,10 +1209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 12
   player1: 0
-  jumpForce: 200
+  jumpForce: 100
   gameCamera: {fileID: 796607715}
---- !u!65 &2079372764
-BoxCollider:
+--- !u!136 &2079372764
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1221,9 +1221,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 15, z: 0.2}
-  m_Center: {x: 0, y: -2.65, z: 0}
+  m_Radius: 1
+  m_Height: 13.66
+  m_Direction: 1
+  m_Center: {x: 0, y: -3.4, z: 0}
 --- !u!54 &2079372765
 Rigidbody:
   m_ObjectHideFlags: 0
