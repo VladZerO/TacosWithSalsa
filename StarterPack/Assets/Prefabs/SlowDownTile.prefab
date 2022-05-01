@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5066546829665682494}
   - component: {fileID: 5627830933236877524}
   m_Layer: 6
-  m_Name: SpeedUpTile
+  m_Name: SlowDownTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6027398609116851232}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!33 &8016851678544836927
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -111,5 +111,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 286.64224, z: 299.94342}
+  m_Size: {x: 300, y: 285, z: 300}
   m_Center: {x: 0, y: -143.32112, z: 0.0000076293945}
