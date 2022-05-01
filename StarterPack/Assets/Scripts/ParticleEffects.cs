@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ParticleEffects : MonoBehaviour
 {
-   // public PlayerController playerController;
     public bool isGrounded;
     public Transform groundPoint;
     public LayerMask whatIsGround;
@@ -22,18 +21,13 @@ public class ParticleEffects : MonoBehaviour
 
     // Update is called once per frame
 
-    /*
-    ||Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.S)
-    */
     void Update()
     {
         groundCheck();
-        runningParticle();
-
         if(Input.GetButtonDown("Jump") && isGrounded==true)
-            {
-                runningParticles.Stop();
-            }
+        {
+            runningParticles.Stop();
+        }
     }
 
     void groundCheck()
@@ -47,12 +41,6 @@ public class ParticleEffects : MonoBehaviour
         {
             isGrounded=false;
         }
-    }
-
-    void runningParticle()
-    {
-        
-         
     }
 
     private void OnCollisionEnter(Collision other) 
