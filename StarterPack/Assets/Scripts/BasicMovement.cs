@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 
 public class BasicMovement : MonoBehaviour
 {
+    public float gravityModifier = 2.0f;
+
     /// <summary>
     /// Movement of the player
     /// </summary>
     [SerializeField]
     private float movementSpeed = 0.0f;
-
-    public bool player1;
 
     /// <summary>
     /// Sensibility of the camera, how fast it will move
@@ -31,17 +31,15 @@ public class BasicMovement : MonoBehaviour
 
 
 
-    /// <summary>
-    /// Game Camera to rotate
-    /// </summary>
-    [SerializeField]
-    private Camera gameCamera;
-
-
     PlayerInputManager playerInputManager;
 
     private Vector2 movementInput = Vector2.zero;
 
+    public LayerMask whatIsGround;
+    public Transform groundPoint;
+    public bool isGrounded;
+
+    public bool playerIsAlive = true;
 
     private void Start()
     {
@@ -52,11 +50,20 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playerIsAlive)
+            return;
+
         MoveCharacter();
-        //RotateCharacter();
-        //Jump();
+        AddGravity();
     }
 
+    private void AddGravity()
+    {
+        if (loRigidBody.velocity.y < 0.0f && !IsGrounded())
+        {
+            loRigidBody.velocity = new Vector3(loRigidBody.velocity.x, -9.8f * gravityModifier, loRigidBody.velocity.z);
+        }
+    }
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -66,7 +73,23 @@ public class BasicMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        loRigidBody.AddForce(new Vector3(0f, jumpForce, 0f));
+        if (IsGrounded())
+        {
+            loRigidBody.AddForce(new Vector3(0f, jumpForce, 0f));
+        }
+    }
+
+
+    private bool IsGrounded()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -76,21 +99,4 @@ public class BasicMovement : MonoBehaviour
     {
         loRigidBody.velocity = new Vector3(movementInput.x * movementSpeed, loRigidBody.velocity.y, movementInput.y * movementSpeed);
     }
-
-    /// <summary>
-    /// Rotates the character towards the mouse
-    /// </summary>
-    private void RotateCharacter()
-    {
-        ///Converting the mouse position to a point in 3D-space
-        Vector3 point = gameCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-        // Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
-        float t = gameCamera.transform.position.y / (gameCamera.transform.position.y - point.y);
-        Vector3 finalPoint = new Vector3(t * (point.x - gameCamera.transform.position.x) + gameCamera.transform.position.x, 1, t * (point.z - gameCamera.transform.position.z) + gameCamera.transform.position.z);
-        //Rotating the object to that point
-        transform.LookAt(finalPoint, Vector3.up);
-        transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
-    }
-
-
 }

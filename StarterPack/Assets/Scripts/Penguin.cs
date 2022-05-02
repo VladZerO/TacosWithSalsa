@@ -6,7 +6,12 @@ public class Penguin : MonoBehaviour
 {
 
     public int playerNumber;
+    public ParticleSystem explosionParticles;
+    public ParticleSystem runningParticles;
+    public ParticleSystem splashParticles;
+    public SpriteRenderer playerSprite;
 
+    
 
     private void Start()
     {
@@ -14,13 +19,25 @@ public class Penguin : MonoBehaviour
     }
 
  
-    public void KillPenguin(int i)
+    public void KillPenguin()
     {
-        if (i == playerNumber)
+        GameManager.instance.DeadPenguin(this);
+        GetComponent<BasicMovement>().playerIsAlive = false;
+        playerSprite.enabled = false;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
         {
-            GameManager.instance.DeadPenguin(this);
-            Destroy(this.gameObject);
+            KillPenguin();
         }
-       
+
+
+        else if (other.gameObject.CompareTag("Water"))
+        {
+            splashParticles.Play();
+
+        }
     }
 }

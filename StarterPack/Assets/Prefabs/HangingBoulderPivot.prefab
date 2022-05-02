@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6470208439825946959}
   - component: {fileID: 6470208439825946958}
-  - component: {fileID: 6669392377578955567}
   m_Layer: 0
   m_Name: HangingBoulderPivot
   m_TagString: Untagged
@@ -48,19 +47,6 @@ MonoBehaviour:
   _angle: 30
   _speed: 2
   startTime: 0
---- !u!135 &6669392377578955567
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6470208439825946957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 239.7
-  m_Center: {x: 7.5, y: -758.8, z: -12.2}
 --- !u!1001 &6470208441367439596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,10 +114,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_Boulder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab1fce5927c806e4ba13ff2c148dce83, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab1fce5927c806e4ba13ff2c148dce83, type: 3}
+--- !u!1 &6128173799322785213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab1fce5927c806e4ba13ff2c148dce83, type: 3}
+  m_PrefabInstance: {fileID: 6470208441367439596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6791557115091472135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab1fce5927c806e4ba13ff2c148dce83, type: 3}
   m_PrefabInstance: {fileID: 6470208441367439596}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &4254396907812402793
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128173799322785213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 220.82825
+  m_Center: {x: 0.1645565, y: -765.76166, z: -0.74920654}

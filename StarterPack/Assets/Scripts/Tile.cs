@@ -21,7 +21,10 @@ public class Tile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GridGenerator.instance.StepOnTile(tileRow);
+            if (!tileSelected)
+            {
+                collision.gameObject.GetComponent<Penguin>().KillPenguin();
+            }
         }
     }
 
