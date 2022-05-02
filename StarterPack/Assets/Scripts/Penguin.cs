@@ -11,11 +11,15 @@ public class Penguin : MonoBehaviour
     public ParticleSystem splashParticles;
     public SpriteRenderer playerSprite;
 
-    
+    private Animator loAnim;
 
     private void Start()
     {
-        playerNumber = GameManager.instance.AddPenguin(this);   
+        playerNumber = GameManager.instance.AddPenguin(this);
+
+        loAnim = GetComponent<Animator>();
+
+        loAnim.SetInteger("State", playerNumber);
     }
 
  

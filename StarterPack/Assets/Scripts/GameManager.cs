@@ -55,10 +55,15 @@ public class GameManager : MonoBehaviour
         currentAmountOfPenguins--;
         currentPenguins.Remove(loPenguin);
 
-        if (currentAmountOfPenguins == 1)
+        if (currentAmountOfPenguins <= 1)
         {
+            if (currentAmountOfPenguins == 1)
+                playerIndexWon = currentPenguins[0].playerNumber;
+            else
+                playerIndexWon = 0;
+
             currentAmountOfPenguins = 0;
-            playerIndexWon = currentPenguins[0].playerNumber;
+            
             currentPenguins.Clear();
 
             SceneManager.LoadScene("EndScreen");
