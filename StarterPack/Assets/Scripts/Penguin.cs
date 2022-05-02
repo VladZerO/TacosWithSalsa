@@ -21,9 +21,9 @@ public class Penguin : MonoBehaviour
  
     public void KillPenguin()
     {
-        GameManager.instance.DeadPenguin(this);
         GetComponent<BasicMovement>().playerIsAlive = false;
         playerSprite.enabled = false;
+        GameManager.instance.DeadPenguin(this);
     }
 
     private void OnCollisionEnter(Collision other)

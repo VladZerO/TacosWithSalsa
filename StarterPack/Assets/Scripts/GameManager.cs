@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI playerWonText;
 
-
+    public int playerIndexWon = 0;
 
     //<< Change for player or something later
     [SerializeField] private List<Penguin> currentPenguins;
@@ -25,7 +26,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
     }
 
     public int AddPenguin(Penguin loPenguin)
@@ -48,16 +52,16 @@ public class GameManager : MonoBehaviour
 
     public void DeadPenguin(Penguin loPenguin)
     {
-        if (currentAmountOfPenguins == 1)
-            return;
-
         currentAmountOfPenguins--;
         currentPenguins.Remove(loPenguin);
 
         if (currentAmountOfPenguins == 1)
         {
-            gameOverUI.SetActive(true);
-            playerWonText.text = "Player " + currentPenguins[0].playerNumber + " won!"; 
+            currentAmountOfPenguins = 0;
+            playerIndexWon = currentPenguins[0].playerNumber;
+            currentPenguins.Clear();
+
+            SceneManager.LoadScene("EndScreen");
         }
     }
     

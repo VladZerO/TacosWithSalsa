@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19638312, g: 0.47695273, b: 0.4977756, a: 1}
+  m_IndirectSpecularColor: {r: 0.19638324, g: 0.47695357, b: 0.4977759, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15594,7 +15594,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Game
+          m_StringArgument: FinalLevelV2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1081337350
@@ -30099,7 +30099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4958608292094619351, guid: 19ddadb8c6e6e3049bc6b71d32c5fb44, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ddadb8c6e6e3049bc6b71d32c5fb44, type: 3}
